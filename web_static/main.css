@@ -79,7 +79,7 @@ body {
   [class="page"] {
     width: 30em;
   }
-  form input[type="ogurl"] {
+  form input[type="text"] {
     margin-right: 0.75em;
   }
 }
@@ -129,7 +129,7 @@ input {
   font: 1em Helvetica;
 }
 
-form input[type="ogurl"] {
+form input[type="text"] {
   width: 100%;
   margin-top: 0.1em;
   border-radius: 0.4em;
