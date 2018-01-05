@@ -1,6 +1,4 @@
-# Monty
-
-<img src="https://github.com/srinitude/monty/blob/master/monty.png" style="height:15%;width:15%" />
+# URL Shortener - Psst!
 
 ## Welcome
 Thanks for visiting our project, URL Shortener. It is written in Python, using Flask, mysql, nginx, HTML, CSS.
