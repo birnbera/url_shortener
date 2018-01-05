@@ -12,7 +12,6 @@
  * DIV INTRO
  * Headings.............H1–H6 styles.
  * Break................HR style.
- * Paragraph............P style.
  *
  * FORM
  * General..............FORM styles.
@@ -39,10 +38,10 @@
 
 html {
   height: 100%;
+  background-color: #F38232;
 }
 
 body {
-  background-color: #F38232;
   display: flex;
   flex-direction: column;
   height: 100vh;
@@ -69,12 +68,7 @@ body {
  */
 
 @media only screen and (max-width: 768px) {
-  div form input[type="ogurl"] {
-    width: 100%;
-  }
-  div select.thomas {
-    width: 100%;
-  }
+
 }
 
 /**
@@ -106,19 +100,13 @@ h1.title {
 
 hr {
     display: block;
-    height: 1.75em;
-    width: 100%;
+    height: 0.5em;
+    width: 85%;
     border: 0;
     border-top: 0.15em solid #61B09D;
     margin: 1em 0;
     padding: 0;
 }
-
-p.field {
-  font-size: 1em;
-}
-
-
 
 
 
@@ -142,7 +130,7 @@ input {
 }
 
 form input[type="ogurl"] {
-  width: 55%;
+  width: 100%;
   margin-top: 0.1em;
   border-radius: 0.4em;
   padding-left: 1em;
@@ -155,45 +143,9 @@ input::-webkit-input-placeholder {
   color: #7B7B7B !important;
 }
 
-select.thomas {
-  width: 42.5%;
-  margin-top: 0.1em;
-  border-radius: 0.4em;
-  border-top-right-radius: 0.4em;
-  border-top-left-radius: 0.4em;
-  border-bottom-right-radius: 0.4em;
-  border-bottom-left-radius: 0.4em;
-  color: #a09f9f;
-  height: 2.7em;
-  padding-left: 1em;
-  font-family: Helvetica, Georgia, Serif;
-  font-size: 1em;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  background-color: #FFFFFF;
-  background-image:
-    linear-gradient(45deg, transparent 50%, gray 50%),
-    linear-gradient(135deg, gray 50%, transparent 50%),
-    linear-gradient(to right, #ccc, #ccc);
-  background-position:
-    calc(100% - 1.3em) calc(1em + 0.2em),
-    calc(100% - 0.91em) calc(1em + 0.2em),
-    calc(100% - 2.2em) 0.7em;
-  background-size:
-    0.4em 0.4em,
-    0.4em 0.4em,
-    0.05em 1.25em;
-  background-repeat: no-repeat;
-}
-
-select, option {
-  color: #7B7B7B !important;
-}
-
 form button[type="button"] {
   color: #FFFFFF;
-  background: #5c6ac4;
-  width: 100%;
+  width: 98%;
   height: 2.7em;
   border: 0;
   outline: 0;
@@ -201,7 +153,7 @@ form button[type="button"] {
   font-size: 1em;
   -webkit-appearance: none;
   -moz-appearance: none;  
-  background-color: #5c6ac4;
+  background-color: #61B09D;
   border-radius: 0.4em;
 }
 
