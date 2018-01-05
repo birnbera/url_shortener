@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="URL shortening made fun 🎉">
+    <meta name="author" content="Sea Robins">
+
+    <title>Psst!</title>
+    <link rel="shortcut icon" href="favicon.ico" />
+
+    <!-- Custom styles -->
+    <link href="main.css" rel="stylesheet">
+  </head>
+
+ <body>
+
+    <div class="page">
+      <h1 class="title">Psst! Wanna shorten your URL? 🔗</h1>
+      <hr/>
+      <p class="field"> Enter Your URL</p>
+      
+      <form action="#" onsubmit="return validate(this);">
+        <input id="ogUrl"
+               type="ogurl"
+               placeholder="URL/Web Address"
+               aria-label="url"
+               aria-invalid="false"
+               aria-describedby="Please enter a valid URL />
+        <p id="shortUrl"></p>
+        <button type="button" onclick="validate()">Shorten!</button>
+      </form>
+    </div>
+
+    <footer> 
+      <p class="footer"> 
+        
+      </p>
+    </footer>
+
+  </body>
+
+</html>

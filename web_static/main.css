@@ -1,0 +1,230 @@
+/**
+* CONTENTS
+ *
+ * GENERIC
+ * Box-sizing...........Better default `box-sizing`.
+ * Layout...............HTML, BODY, PAGE styles.
+ *
+ * RESPONSIVE MEDIA QUERIES
+ * Mobile...............mobile styles.
+ * Tablet & Desktop.....tablet and desktop styles.
+ *
+ * DIV INTRO
+ * Headings.............H1–H6 styles.
+ * Break................HR style.
+ * Paragraph............P style.
+ *
+ * FORM
+ * General..............FORM styles.
+ * Input................INPUT styles.
+ * Select...............SELECT, OPTION styles.
+ * Button...............BUTTON style.
+ *
+ * FOOTER
+ * General..............FOOTER, P style.
+ * Link.................A style.
+*/
+
+
+
+
+
+/*------------------------------------*\
+  #GENERIC
+\*------------------------------------*/
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  background-color: #F38232;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.page {
+  flex: 1 0 auto;
+  width: 70%;
+  margin: 3em auto 0;
+  color: #FFFFFF;
+  font-family: Helvetica, Georgia, Serif;
+}
+
+
+
+
+
+/*------------------------------------*\
+  #RESPONSIVE-MEDIA-QUERIES
+\*------------------------------------*/
+
+/**
+ * Mobile Styles
+ */
+
+@media only screen and (max-width: 768px) {
+  div form input[type="ogurl"] {
+    width: 100%;
+  }
+  div select.thomas {
+    width: 100%;
+  }
+}
+
+/**
+ * Tablet & Desktop Styles
+ */
+
+@media only screen and (min-width: 769px) {
+  [class="page"] {
+    width: 30em;
+  }
+  form input[type="ogurl"] {
+    margin-right: 0.75em;
+  }
+}
+
+
+
+
+
+/*------------------------------------*\
+  #DIV-INTRO
+\*------------------------------------*/
+
+h1.title {
+  margin: 0;
+  padding: 0;
+  font-size: 1.5em;
+}
+
+hr {
+    display: block;
+    height: 1.75em;
+    width: 100%;
+    border: 0;
+    border-top: 0.15em solid #61B09D;
+    margin: 1em 0;
+    padding: 0;
+}
+
+p.field {
+  font-size: 1em;
+}
+
+
+
+
+
+/*------------------------------------*\
+  #FORM
+\*------------------------------------*/
+
+form {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+form > * {
+  margin: 0.4em 0;
+}
+
+input {
+  font: 1em Helvetica;
+}
+
+form input[type="ogurl"] {
+  width: 55%;
+  margin-top: 0.1em;
+  border-radius: 0.4em;
+  padding-left: 1em;
+  height: 2.7em;
+  border-width: thin;
+  outline: 0;
+}
+
+input::-webkit-input-placeholder {
+  color: #7B7B7B !important;
+}
+
+select.thomas {
+  width: 42.5%;
+  margin-top: 0.1em;
+  border-radius: 0.4em;
+  border-top-right-radius: 0.4em;
+  border-top-left-radius: 0.4em;
+  border-bottom-right-radius: 0.4em;
+  border-bottom-left-radius: 0.4em;
+  color: #a09f9f;
+  height: 2.7em;
+  padding-left: 1em;
+  font-family: Helvetica, Georgia, Serif;
+  font-size: 1em;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-color: #FFFFFF;
+  background-image:
+    linear-gradient(45deg, transparent 50%, gray 50%),
+    linear-gradient(135deg, gray 50%, transparent 50%),
+    linear-gradient(to right, #ccc, #ccc);
+  background-position:
+    calc(100% - 1.3em) calc(1em + 0.2em),
+    calc(100% - 0.91em) calc(1em + 0.2em),
+    calc(100% - 2.2em) 0.7em;
+  background-size:
+    0.4em 0.4em,
+    0.4em 0.4em,
+    0.05em 1.25em;
+  background-repeat: no-repeat;
+}
+
+select, option {
+  color: #7B7B7B !important;
+}
+
+form button[type="button"] {
+  color: #FFFFFF;
+  background: #5c6ac4;
+  width: 100%;
+  height: 2.7em;
+  border: 0;
+  outline: 0;
+  font-weight: bold;
+  font-size: 1em;
+  -webkit-appearance: none;
+  -moz-appearance: none;  
+  background-color: #5c6ac4;
+  border-radius: 0.4em;
+}
+
+
+
+
+
+/*------------------------------------*\
+  #FOOTER
+\*------------------------------------*/
+
+footer {
+  flex-shrink: 0;
+  margin-top: 10em;
+  padding: 1.25em;
+  text-align: center;
+}
+
+p.footer {
+  font-family: Helvetica, Georgia, Serif;
+  font-size: 0.75em;
+}
+
+a.unsub {
+  color: #FFFFFF;
+}
