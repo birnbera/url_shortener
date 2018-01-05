@@ -4,19 +4,19 @@
 import base62
 from urllib.parse import urlparse
 from datetime import datetime
-from flask import Flask, request, redirect, render_template
+from flask import Flask, request, redirect, render_template, abort
 from flask_cors import CORS
 from flask_sqlalchemy import SQLAlchemy
 
-app = Flask('web_flask')
+app = Flask(__name___)
 CORS(app, resources="/*", origins="0.0.0.0")
 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+mysqldb://flask:f1ask@localhost/url_db'
 db = SQLAlchemy(app)
 
 class Url(db.Model):
-    short = db.Column(db.String, primary_key=True)
-    original = db.Column(db.String(80), unique=True, nullable=False)
+    short = db.Column(db.String(256), primary_key=True)
+    original = db.Column(db.String(256), unique=True, nullable=False)
     created_at = db.Column(db.DateTime, default=datetime.utcnow(), nullable=False)
 
     def __repr__(self):
@@ -25,9 +25,9 @@ class Url(db.Model):
 
 db.create_all()
 
-@app.errorhandler(404)
-def page_not_found(e):
-    return render_template('web_static/404.html'), 404
+#@app.errorhandler(404)
+#def page_not_found(e):
+#    return render_template('web_static/404.html'), 404
 
 @app.route('/', strict_slashes=False, methods=['GET', 'POST'])
 def add_url():
@@ -44,7 +44,7 @@ def add_url():
         db.session.commit()
 
         return jsonify({'shortUrl': shortUrl}), 201
-    return render_template('web_static/404.html'), 404
+    return render_template('web_static/index.html'), 200
 
 @app.route('/<url>', strict_slashes=False)
 def uri_handle(url):
@@ -57,4 +57,4 @@ def uri_handle(url):
 
 
 if __name__ == "__main__":
-    app.run(host='10.250.1.228')
+    app.run(host='0.0.0.0', port=8080)
