@@ -4,11 +4,11 @@
 import base62
 from urllib.parse import urlparse
 from datetime import datetime
-from flask import Flask, request, redirect, render_template, abort
+from flask import Flask, request, redirect, render_template, abort, jsonify
 from flask_cors import CORS
 from flask_sqlalchemy import SQLAlchemy
 
-app = Flask(__name___)
+app = Flask(__name__, template_folder='web_static')
 CORS(app, resources="/*", origins="0.0.0.0")
 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+mysqldb://flask:f1ask@localhost/url_db'
@@ -27,7 +27,7 @@ db.create_all()
 
 #@app.errorhandler(404)
 #def page_not_found(e):
-#    return render_template('web_static/404.html'), 404
+#    return render_template('404.html'), 404
 
 @app.route('/', strict_slashes=False, methods=['GET', 'POST'])
 def add_url():
@@ -37,14 +37,15 @@ def add_url():
         if urlparse(originalUrl).scheme == '':
             originalUrl = 'http://' + originalUrl
 
-        shortUrl = base62.encode(originalUrl)
-
+        print(originalUrl)
+        shortUrl = base62.encode(base62.bytes_to_int(originalUrl.encode()))
+        print(shortUrl)
         newurl = Url(short=shortUrl, original=originalUrl)
         db.session.add(newurl)
         db.session.commit()
 
         return jsonify({'shortUrl': shortUrl}), 201
-    return render_template('web_static/index.html'), 200
+    return render_template('index.html'), 200
 
 @app.route('/<url>', strict_slashes=False)
 def uri_handle(url):
