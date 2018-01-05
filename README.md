@@ -7,7 +7,6 @@ Thanks for visiting our project, URL Shortener. It is written in Python, using F
 * [Requirements](#requirements)
 * [Usage](#usage)
 * [Credits](#credits)
-* [License](#license)
 
 ## Requirements
 * Web browser
@@ -28,6 +27,3 @@ http://psst.la
 
 ## Credits
 URL Shortener is owned and maintained by Andrew Birnbera ([@birnbera](https://twitter.com/birnbera)), Felicia Hsieh ([@feliciahsiehsw](https://twitter.com/feliciahsiehsw)), Anoop Marchala ([@xx]), Wendy Segura ([@xx]), and Tommy Wang ([@xx]). You can reply to us and to [@holbertonschool](https://twitter.com/holbertonschool) on Twitter for more updates on this project and our forked projects.
-
-## License
-URL Shortener is released under the MIT license. See [LICENSE](https://github.com/birnbera/url_shortener/blob/master/LICENSE) for details.
