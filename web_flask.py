@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """URL web application"""
 
+import uuid
 import base62
 from urllib.parse import urlparse
 from datetime import datetime
@@ -15,9 +16,12 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+mysqldb://flask:f1ask@localhost/u
 db = SQLAlchemy(app)
 
 class Url(db.Model):
-    short = db.Column(db.String(256), primary_key=True)
+    short = db.Column(db.String(60), primary_key=True)
     original = db.Column(db.String(256), unique=True, nullable=False)
     created_at = db.Column(db.DateTime, default=datetime.utcnow(), nullable=False)
+
+    def __init__(self):
+        self.short = base62.encode(uuid.uuid4())
 
     def __repr__(self):
         return '<Short URL: {}\nActual URL: {}>'.format(self.short,
@@ -37,20 +41,17 @@ def add_url():
         if urlparse(originalUrl).scheme == '':
             originalUrl = 'http://' + originalUrl
 
-        print(originalUrl)
-        shortUrl = base62.encode(base62.bytes_to_int(originalUrl.encode()))
-        print(shortUrl)
-        newurl = Url(short=shortUrl, original=originalUrl)
+        newurl = Url(original=originalUrl)
+        shortUrl = new.short
         db.session.add(newurl)
         db.session.commit()
 
-        return jsonify({'shortUrl': shortUrl}), 201
+        return render_template('index.html', shortUrl=shortUrl), 201
     return render_template('index.html'), 200
 
 @app.route('/<url>', strict_slashes=False)
 def uri_handle(url):
     """servers actual webpage based on url"""
-    shortUrl = base62.decode(url)
     originalUrl = Url.query.filter_by(short=shortUrl).first()
     if originalUrl is None:
         abort(404)
