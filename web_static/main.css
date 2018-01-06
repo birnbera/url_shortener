@@ -143,7 +143,7 @@ input::-webkit-input-placeholder {
   color: #7B7B7B !important;
 }
 
-form button[type="button"] {
+form button[type="submit"] {
   color: #FFFFFF;
   width: 98%;
   height: 2.7em;
@@ -155,6 +155,7 @@ form button[type="button"] {
   -moz-appearance: none;  
   background-color: #61B09D;
   border-radius: 0.4em;
+  border: 1px solid #F6F6F6;
 }
 
 
