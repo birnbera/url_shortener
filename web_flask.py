@@ -20,14 +20,14 @@ class Url(db.Model):
     original = db.Column(db.String(256), unique=True, nullable=False)
     created_at = db.Column(db.DateTime, default=datetime.utcnow(), nullable=False)
 
-    def __init__(self):
-        self.short = base62.encode(uuid.uuid4())
+    def __init__(self, original):
+        self.short = base62.encode(int(uuid.uuid4()))
+        self.original = original
 
     def __repr__(self):
         return '<Short URL: {}\nActual URL: {}>'.format(self.short,
                 self.actual)
 
-db.create_all()
 
 #@app.errorhandler(404)
 #def page_not_found(e):
@@ -41,8 +41,8 @@ def add_url():
         if urlparse(originalUrl).scheme == '':
             originalUrl = 'http://' + originalUrl
 
-        newurl = Url(original=originalUrl)
-        shortUrl = new.short
+        newurl = Url(originalUrl)
+        shortUrl = newurl.short
         db.session.add(newurl)
         db.session.commit()
 
@@ -59,4 +59,5 @@ def uri_handle(url):
 
 
 if __name__ == "__main__":
+    db.create_all()
     app.run(host='0.0.0.0', port=8080)
