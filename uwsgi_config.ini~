@@ -1,0 +1,26 @@
+[uwsgi]
+# -------------
+# Settings:
+# key = value
+# Comments >> #
+# -------------
+
+# socket = [path].sock
+socket = /tmp/url_shortener.sock
+
+# Base application directory
+# chdir = /full/path
+chdir  = /var/www/url_shortener
+
+# WSGI module and callable
+# module = [wsgi_module_name]:[application_callable_name]
+module = web_flask:app
+
+# master = [master process (true of false)]
+master = true
+
+# processes = [number of processes]
+processes = 5
+
+# threads = [number of threads per process]
+threads = 2
