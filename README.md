@@ -9,7 +9,18 @@ Thanks for visiting our project, URL Shortener. It is written in Python, using F
 * [Credits](#credits)
 
 ## Requirements
+* Ubuntu 14.04 LTS
+* python3 3.4.3
+* mysql 14.14 Distrib 5.7.20, for Linux (x86_64) using  EditLine wrapper
+* pip3 (1.5.4 from /usr/lib/python3/dist-packages (python 3.4))
+* requests module
+* nodejs
+* Flask module
+* jinja module
 * Web browser
+* pep8 / pycodestyle styling
+* semistandard styling
+* All programs were run on a Vagrant(ubun
 
 ## Installation
 In your terminal, git clone the directory with the following command:
