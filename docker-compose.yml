@@ -1,4 +1,4 @@
-version: '1'
+version: '2'
 
 services:
   mysql:
@@ -14,17 +14,18 @@ services:
     ports:
       - "3306:3306"
 
-  flask-wsgi:
+  web_app:
     restart: always
     build:
-      dockerfile: DockerFile
-      image: url_shortner
+      context: .
+      dockerfile: Dockerfile
+    image: web_app
     depends_on:
       - mysql
     links:
       - mysql
     volumes:
-      - ./webapp:/webapp
+      - ./web_app:/var/www/url_shortener/web_app
     ports:
       - "80:80"
       - "443:443"

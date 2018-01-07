@@ -19,15 +19,13 @@ EXPOSE 80 443
 RUN echo "daemon off;" >> /etc/nginx/nginx.conf
 
 # Remove default configuration from Nginx and add custom
-COPY url_shortner /etc/nginx/sites-available/
-RUN ln -fs /etc/nginx/sites-available/url_shortner /etc/nginx/sites-enabled/default
+COPY url_shortener /etc/nginx/sites-available/
+RUN ln -fs /etc/nginx/sites-available/url_shortener /etc/nginx/sites-enabled/default
 
 # Move respective files to right location based on configration
-# copy web_app to /var/www/url_shortner/
-RUN mkdir -p /var/www/url_shortner/
-COPY web_app /var/www/url_shortner/
-VOLUME /var/www/url_shortner/web_app
-WORKDIR /var/www/url_shortner/web_app
+# copy web_app to /var/www/url_shortener/
+RUN mkdir -p /var/www/url_shortener/
+COPY web_app /var/www/url_shortener/web_app
 
 #python requirements
 COPY requirements.txt /requirements.txt
@@ -39,5 +37,8 @@ RUN apt-get update && apt-get install -y supervisor \
 && rm -rf /var/lib/apt/lists/*
 # Custom Supervisord config
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+
+VOLUME /var/www/url_shortener/web_app
+WORKDIR /var/www/url_shortener/web_app
 
 CMD ["/usr/bin/supervisord"]
