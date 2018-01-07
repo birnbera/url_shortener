@@ -26,4 +26,4 @@ http://sea-robins.holberton.us or
 http://psst.la
 
 ## Credits
-URL Shortener is owned and maintained by Andrew Birnbera ([@birnbera](https://twitter.com/birnbera)), Felicia Hsieh ([@feliciahsiehsw](https://twitter.com/feliciahsiehsw)), Anoop Marchala ([@amacharla]), Wendy Segura ([@wendysegura]), and Thomas Wang ([@thomaspwang]). You can reply to us and to [@holbertonschool](https://twitter.com/holbertonschool) on Twitter for more updates on this project and our forked projects.
+URL Shortener is owned and maintained by [Andrew Birnbera](@birnbera), [Felicia Hsieh](@feliciahsieh), [Anoop Marchala](@amacharla), [Wendy Segura](@wendysegura) and [Thomas Wang])@thomaspwang). You can reply to us and to [@holbertonschool](https://twitter.com/holbertonschool) on Twitter for more updates on this project and our forked projects.
