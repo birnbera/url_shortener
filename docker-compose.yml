@@ -1,0 +1,30 @@
+version: '1'
+
+services:
+  mysql:
+    restart: always
+    image: mysql:5.7
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=url_db
+      - MYSQL_USER=flask
+      - MYSQL_PASSWORD=f1ask
+    volumes:
+      - ./mysql_data:/var/lib/mysql
+    ports:
+      - "3306:3306"
+
+  flask-wsgi:
+    restart: always
+    build:
+      dockerfile: DockerFile
+      image: url_shortner
+    depends_on:
+      - mysql
+    links:
+      - mysql
+    volumes:
+      - ./webapp:/webapp
+    ports:
+      - "80:80"
+      - "443:443"
