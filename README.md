@@ -23,7 +23,8 @@ If you as a developer would like to fork our current project and create your own
 
 To run URL Shortener, please visit:
 http://sea-robins.holberton.us or
-http://psst.la
+http://psst.la or
+http://pssturl.com
 
 ## Credits
 URL Shortener is owned and maintained by [Andrew Birnbera](http://github.com/birnbera), [Felicia Hsieh](http://github.com/feliciahsieh), [Anoop Marchala](http://github.com/amacharla), [Wendy Segura](http://github.com/wendysegura) and [Thomas Wang](http://github.com/thomaspwang). You can reply to us and to [@holbertonschool](https://twitter.com/holbertonschool) on Twitter for more updates on this project and our forked projects.
