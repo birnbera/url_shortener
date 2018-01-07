@@ -1,0 +1,10 @@
+# Don't save these
+*~
+\#*\#
+__pycache__/
+versions/
+*main*.py
+*.pyo
+*.pyc
+*.sql
+file.json
