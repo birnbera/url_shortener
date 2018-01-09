@@ -28,13 +28,13 @@
                placeholder="Enter Your URL"
                aria-label="url"
                aria-invalid="false"
-               aria-describedby="Please enter a valid URL />
+               aria-describedby="Please enter a valid URL" />
         <p id="result"></p>
         <button type="submit">Shorten!</button>
       </form>
 
       {% if shortUrl is defined %}
-            <p> ✨ URL: <a href="psst.la/{{ shortUrl }}">psst.la/{{ shortUrl }}></a> </p>
+            <p> ✨ URL: <a href="{{ shortUrl }}">psst.la/{{ shortUrl }}</a> </p>
       {% endif %}
     </div>
 
