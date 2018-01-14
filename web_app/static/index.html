@@ -34,8 +34,8 @@
         <button type="submit">Shorten!</button>
       </form>
 
-      {% if shortURL is defined %}
-            <p> ✨ URL: <a href="psst.la/{{ shortUrl }}">psst.la/{{ shortUrl }}></a> </p>
+      {% if shortUrl is defined %}
+            <p> ✨ URL: <a href="{{ shortUrl }}">psst.la/{{ shortUrl }}></a> </p>
       {% endif %}
 
     </div>

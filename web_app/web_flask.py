@@ -13,7 +13,7 @@ app = Flask(__name__, template_folder='static')
 CORS(app, resources="/*", origins="0.0.0.0")
 
 # db connection
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+mysqldb://flask:f1ask@localhost/url_db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+mysqldb://flask:f1ask@mysql/url_db'
 db = SQLAlchemy(app)
 
 # creates table in Mysql as `url` for the `url_db` database
@@ -28,6 +28,7 @@ class Url(db.Model):
         self.short = base62.encode(int(uuid.uuid4()))
         self.original = original
 
+db.create_all()
 #@app.errorhandler(404)
 #def page_not_found(e):
 #    return render_template('404.html'), 404
@@ -42,7 +43,7 @@ def add_url():
             originalUrl = 'http://' + originalUrl
 
         check = Url.query.filter_by(original=originalUrl).first()
-        if check: # prevents duplicate url entries
+        if check is not None: # prevents duplicate url entries
             url = check.short
             return render_template('index.html', shortUrl=url), 200
 
@@ -65,5 +66,4 @@ def uri_handle(url):
 
 
 if __name__ == "__main__":
-    db.create_all()
     app.run(host='0.0.0.0', port=80)
